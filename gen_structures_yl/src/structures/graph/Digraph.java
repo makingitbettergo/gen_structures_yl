@@ -384,6 +384,7 @@ public class Digraph extends JPanel implements MouseMotionListener,
 					opt = st.nextToken();
 					opt = opt.toLowerCase();
 					if (opt.equals("edge")) {
+
 						node1 = Integer.parseInt(st.nextToken());
 						node2 = Integer.parseInt(st.nextToken());
 						if (st.hasMoreTokens())

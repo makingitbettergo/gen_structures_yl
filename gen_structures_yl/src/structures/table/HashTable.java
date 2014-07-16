@@ -311,21 +311,31 @@ public class HashTable {
 		}
 
 		// Expected outcome:
-		/*
-		 * ============================================ Create a hash table
-		 * using hash function: 0 Number of probes made: 44 Li is in the table
-		 * at index: 157 Adams is in the table at index: 164 Santos is not in
-		 * the table ============================================ Create a hash
-		 * table using hash function: 1 Number of probes made: 4849 Li is in the
-		 * table at index: 112 Adams is in the table at index: 65 Santos is not
-		 * in the table ============================================ Create a
-		 * hash table using hash function: 2 Number of probes made: 69 Li is in
-		 * the table at index: 182 Adams is in the table at index: 230 Santos is
-		 * not in the table ============================================ Create
-		 * a hash table using hash function: 3 Number of probes made: 37 Li is
-		 * in the table at index: 30 Adams is in the table at index: 37 Santos
-		 * is not in the table
-		 */
+		// ============================================
+		// Create a hash table using hash function: 0
+		// Number of probes made: 44
+		// Li is in the table at index: 157
+		// Adams is in the table at index: 164
+		// Santos is not in the table
+		// ============================================
+		// Create a hash table using hash function: 1
+		// Number of probes made: 4849
+		// Li is in the table at index: 112
+		// Adams is in the table at index: 65
+		// Santos is not in the table
+		// ============================================
+		// Create a hash table using hash function: 2
+		// Number of probes made: 69
+		// Li is in the table at index: 182
+		// Adams is in the table at index: 230
+		// Santos is not in the table
+		// ============================================
+		// Create a hash table using hash function: 3
+		// Number of probes made: 37
+		// Li is in the table at index: 30
+		// Adams is in the table at index: 37
+		// Santos is not in the table
+		//
 	}
 
 }
