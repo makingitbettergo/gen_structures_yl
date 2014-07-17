@@ -254,19 +254,19 @@ public class BinaryTree<E extends Comparable<? super E>> {
 		}
 	}
 
-	private int updateHeight(Node<E> node) {
-		Node<E> lt = node.left, rt = node.right;
-
-		if (lt == null && rt == null) { // Leaf node is height zero
-			return 0;
-		} else if (lt == null) { // Half node cases
-			return 1 + rt.height;
-		} else if (rt == null) {
-			return 1 + lt.height;
-		} else {
-			return 1 + Math.max(lt.height, rt.height);
-		}
-	}
+	// private int updateHeight(Node<E> node) {
+	// Node<E> lt = node.left, rt = node.right;
+	//
+	// if (lt == null && rt == null) { // Leaf node is height zero
+	// return 0;
+	// } else if (lt == null) { // Half node cases
+	// return 1 + rt.height;
+	// } else if (rt == null) {
+	// return 1 + lt.height;
+	// } else {
+	// return 1 + Math.max(lt.height, rt.height);
+	// }
+	// }
 
 	private int getLevel() {
 		return (int) (Math.log(size()) / Math.log(2));
@@ -344,4 +344,3 @@ public class BinaryTree<E extends Comparable<? super E>> {
 		System.out.println(bt.toStringPreOrder(bt.locate(7)));
 	}
 }
-

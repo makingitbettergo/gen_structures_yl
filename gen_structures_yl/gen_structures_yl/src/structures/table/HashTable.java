@@ -2,7 +2,6 @@ package structures.table;
 
 import java.util.ArrayList;
 import java.io.*;
-import java.io.ObjectInputStream.GetField;
 import java.lang.Math;
 
 /**
