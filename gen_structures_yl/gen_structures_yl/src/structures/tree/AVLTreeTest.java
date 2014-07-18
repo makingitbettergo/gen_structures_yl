@@ -24,8 +24,8 @@ public class AVLTreeTest {
 		a.insert(2);
 		a.insert(3);
 		a.delete(10);
-		a.print();
-
+//		a.print();
+		System.out.println(a);
 		System.out.println("\nString Test: \n");
 
 		AVLTree<String> b = new AVLTree<String>();

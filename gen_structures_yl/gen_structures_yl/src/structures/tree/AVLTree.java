@@ -1,7 +1,7 @@
 package structures.tree;
 
 public class AVLTree<T extends Comparable<T>> {
-	private Node<T> head;
+	private Node<T> root;
 	private int count;
 
 	/**
@@ -12,7 +12,7 @@ public class AVLTree<T extends Comparable<T>> {
 	 * @return boolean indicating whether the target was found
 	 */
 	public boolean search(T target) {
-		return searchRecurse(target, this.head);
+		return searchRecurse(target, this.root);
 	}
 
 	private boolean searchRecurse(T target, Node<T> cur) {
@@ -35,11 +35,11 @@ public class AVLTree<T extends Comparable<T>> {
 	 * @param value
 	 */
 	public void insert(T value) {
-		if (this.head == null) {
-			this.head = new Node<T>(value);
+		if (this.root == null) {
+			this.root = new Node<T>(value);
 			count++;
 		}
-		insertRecurse(value, head);
+		insertRecurse(value, root);
 	}
 
 	private void insertRecurse(T value, Node<T> cur) {
@@ -160,7 +160,7 @@ public class AVLTree<T extends Comparable<T>> {
 
 		// if it is the root of the tree..
 		if (parent == null) {
-			this.head = root;
+			this.root = root;
 		} else if (isLeftChild) {
 			parent.setLeft(root);
 		} else {
@@ -195,7 +195,7 @@ public class AVLTree<T extends Comparable<T>> {
 
 		// if it is the root of the tree..
 		if (parent == null) {
-			this.head = root;
+			this.root = root;
 		} else if (isLeftChild) {
 			parent.setLeft(root);
 		} else {
@@ -210,8 +210,8 @@ public class AVLTree<T extends Comparable<T>> {
 	 *            to delete
 	 */
 	public void delete(T value) {
-		if (this.head != null) {
-			deleteRecurse(value, head);
+		if (this.root != null) {
+			deleteRecurse(value, root);
 		}
 		return;
 	}
@@ -223,24 +223,24 @@ public class AVLTree<T extends Comparable<T>> {
 
 			// If the node is a leaf or has only one child, remove it.
 			if (cur.getLeft() == null && cur.getRight() == null) {
-				if (this.head == cur) {
-					this.head = null;
+				if (this.root == cur) {
+					this.root = null;
 				} else if (cur.isLeftChild()) {
 					parent.setLeft(null);
 				} else {
 					parent.setRight(null);
 				}
 			} else if (cur.getLeft() == null) {
-				if (this.head == cur) {
-					this.head = cur.getRight();
+				if (this.root == cur) {
+					this.root = cur.getRight();
 				} else if (cur.isLeftChild()) {
 					parent.setLeft(cur.getRight());
 				} else {
 					parent.setRight(cur.getRight());
 				}
 			} else if (cur.getRight() == null) {
-				if (this.head == cur) {
-					this.head = cur.getLeft();
+				if (this.root == cur) {
+					this.root = cur.getLeft();
 				} else if (cur.isLeftChild()) {
 					parent.setLeft(cur.getLeft());
 				} else {
@@ -276,6 +276,39 @@ public class AVLTree<T extends Comparable<T>> {
 		}
 	}
 
+	public String toString() {
+		if (this.root == null) {
+			return "[]";
+		}
+		// String recStr = this.toStringPreOrder(this.root);
+		// String recStr = this.toStringPostOrder(this.root);
+		String recStr = this.toStringInOrder(this.root);
+		return "[" + recStr.substring(0, recStr.length() - 1) + "]";
+	}
+
+	public String toStringInOrder(Node<T> current) {
+		if (current == null)
+			return "";
+		return this.toStringInOrder(current.left) + current.value.toString()
+				+ "," + this.toStringInOrder(current.right);
+
+	}
+
+	public String toStringPostOrder(Node<T> current) {
+		if (current == null)
+			return "";
+		return toStringPostOrder(current.left)
+				+ toStringPostOrder(current.right) + current.value.toString()
+				+ ",";
+	}
+
+	public String toStringPreOrder(Node<T> current) {
+		if (current == null)
+			return "";
+		return current.value.toString() + "," + toStringPreOrder(current.left)
+				+ toStringPreOrder(current.right);
+	}
+
 	/**
 	 * prints the tree out takes O(n)
 	 */
@@ -284,14 +317,14 @@ public class AVLTree<T extends Comparable<T>> {
 		int curDepth = 0;
 		int oldDepth = 0;
 
-		int height = Math.max(this.head.getLeftHeight(),
-				this.head.getRightHeight()) + 1;
+		int height = Math.max(this.root.getLeftHeight(),
+				this.root.getRightHeight()) + 1;
 		int tabs = 0;
 		for (int i = height - 1; i > 0; i--) {
 			tabs += i;
 		}
 		int oldTabs = 0;
-		pq.enqueue(this.head, curDepth, tabs);
+		pq.enqueue(this.root, curDepth, tabs);
 		PrintNode p = pq.dequeue();
 		while (p != null) {
 			curDepth = p.depth;
