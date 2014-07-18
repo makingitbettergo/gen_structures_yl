@@ -1,6 +1,6 @@
 package structures.tree;
 
-public class Test {
+public class AVLTreeTest {
 	public static void main(String[] args) {
 		AVLTree<Integer> a = new AVLTree<Integer>();
 		System.out.println("Integer Test: \n");

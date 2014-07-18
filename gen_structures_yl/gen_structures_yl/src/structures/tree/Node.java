@@ -1,6 +1,5 @@
 package structures.tree;
 
-//public class Node<E extends Comparable<? super E>> {
 public class Node<T extends Comparable<? super T>> {
 	public T value;
 	public Node<T> parent;
