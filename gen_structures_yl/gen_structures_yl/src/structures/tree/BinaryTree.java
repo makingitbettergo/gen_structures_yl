@@ -268,6 +268,10 @@ public class BinaryTree<E extends Comparable<? super E>> {
 	// }
 	// }
 
+	/**
+	 * @deprecated
+	 * @return
+	 */
 	private int getLevel() {
 		return (int) (Math.log(size()) / Math.log(2));
 	}

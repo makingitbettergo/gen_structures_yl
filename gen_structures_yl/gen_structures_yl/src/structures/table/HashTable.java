@@ -284,14 +284,18 @@ public class HashTable {
 				String s;
 				while ((s = fileRead.readLine()) != null)
 					table.put(s);
+				fileRead.close();
 
 				fileRead = new BufferedReader(new FileReader("remove.txt"));
 				while ((s = fileRead.readLine()) != null)
 					table.remove(s);
+				fileRead.close();
 
 				fileRead = new BufferedReader(new FileReader("add2.txt"));
 				while ((s = fileRead.readLine()) != null)
 					table.put(s);
+				fileRead.close();
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
